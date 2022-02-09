@@ -1,0 +1,18 @@
+<div class="product-option-row">
+    <div class="product-option-label" @click = "option.visible = !option.visible" :class = "{labelActive: option.visible}">
+        <b>${option.name}</b> <span>${selected[index]}</span>
+    </div>
+    <div class="product-option-list" v-if = "option.visible">
+        <template v-for ="(value) in option.values">
+            <div class="product-option-item" 
+            @click = "
+                selected[index] = value;
+                option.visible = false;
+                form.selections[index] = value;
+                "
+            >
+            ${value}
+        </div>
+        </template>
+    </div>
+</div>
